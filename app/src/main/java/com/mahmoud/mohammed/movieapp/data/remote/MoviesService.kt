@@ -21,6 +21,6 @@ interface MoviesService {
                      @Query(SORT_BY) sortBy: String = SORT_BY_DEFAULT,
                      @Query(LANGUAGE) language: String = LANGUAGE_DEFAULT,
                      @Query(INCLUDE_ADULT) includeAdult: Boolean = INCLUDE_ADULT_DEFAULT,
-                     @Query(API_KEY) apiKey: String = API_KEY_VALUE): Single<List<Movie>>
+                     @Query(API_KEY) apiKey: String = API_KEY_VALUE): Single<List<MovieApi>>
 
 }

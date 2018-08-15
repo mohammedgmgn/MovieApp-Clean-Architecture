@@ -4,5 +4,5 @@ import com.mahmoud.mohammed.movieapp.data.model.Movie
 import io.reactivex.Single
 
 interface MovieRemoteSourceInterface {
-    fun getMovieList(page:Int) : Single<List<Movie>>
+    fun getMovieList(page:Int) : Single<List<MovieApi>>
 }
