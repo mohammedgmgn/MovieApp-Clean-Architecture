@@ -1,6 +1,6 @@
 package com.mahmoud.mohammed.movieapp.dagger
 
-import com.mahmoud.mohammed.movieapp.data.MoviesService
+import com.mahmoud.mohammed.movieapp.data.remote.MoviesService
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

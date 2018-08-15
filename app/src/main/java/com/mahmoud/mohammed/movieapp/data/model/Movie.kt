@@ -1,4 +1,4 @@
-package com.mahmoud.mohammed.movieapp
+package com.mahmoud.mohammed.movieapp.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
