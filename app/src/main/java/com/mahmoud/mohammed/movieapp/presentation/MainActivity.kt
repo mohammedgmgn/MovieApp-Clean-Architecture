@@ -8,6 +8,7 @@ import com.mahmoud.mohammed.movieapp.common.replaceFragment
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
+
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
@@ -29,3 +30,5 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     }
 }
+
+

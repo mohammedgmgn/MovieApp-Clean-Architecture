@@ -1,4 +1,4 @@
-package com.mahmoud.mohammed.movieapp.dagger
+package com.mahmoud.mohammed.movieapp.dagger.network
 
 import com.mahmoud.mohammed.movieapp.data.remote.MoviesService
 import dagger.Module
@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 private const val BASE_URL = "http://api.themoviedb.org/"
 
 @Module
-class NetModule {
+class NetworkModule {
 
     @Provides
     fun providesCoinMarketCapApi(retrofit: Retrofit) = retrofit.create(MoviesService::class.java)
