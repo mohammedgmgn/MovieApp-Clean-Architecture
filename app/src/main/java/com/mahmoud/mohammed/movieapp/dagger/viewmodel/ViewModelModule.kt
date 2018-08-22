@@ -1,6 +1,7 @@
 package com.mahmoud.mohammed.movieapp.dagger.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.mahmoud.mohammed.movieapp.presentation.MovieListViewModel
 import dagger.Binds
 import dagger.MapKey
@@ -17,7 +18,11 @@ internal annotation class ViewModelKey(val value: KClass<out ViewModel>)
 @Module
 abstract class ViewModelModule {
     @Binds
+    internal abstract fun bindViewModelFactory(factory: DaggerViewModelFactory): ViewModelProvider.Factory
+
+    @Binds
     @IntoMap
     @ViewModelKey(MovieListViewModel::class)
-    abstract fun bindCryptoListViewModel(viewModel: MovieListViewModel) : ViewModel
+    abstract fun bindMovieListViewModel(viewModel: MovieListViewModel) : ViewModel
+
 }

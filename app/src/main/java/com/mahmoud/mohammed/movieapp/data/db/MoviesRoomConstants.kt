@@ -1,4 +1,4 @@
-package io.github.erikcaffrey.arch_components_paging_library.data.room
+package com.mahmoud.mohammed.movieapp.data.db
 
 object DATABASE {
     const val DATABASE_MOVIE = "movies.db"

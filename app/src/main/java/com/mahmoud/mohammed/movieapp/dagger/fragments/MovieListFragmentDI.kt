@@ -20,7 +20,6 @@ abstract class MovieListFragmentModule {
     @Binds
     @IntoMap
     @FragmentKey(MovieListFragment::class)
-    abstract fun bindCryptoListFragmentInjectorFactory(builder:
-                                                       MovieListFragmentSubcomponent.Builder):
+    abstract fun bindMovieListFragmentInjectorFactory(builder: MovieListFragmentSubcomponent.Builder):
             AndroidInjector.Factory<out Fragment>
 }

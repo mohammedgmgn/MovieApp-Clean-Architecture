@@ -2,18 +2,18 @@ package com.mahmoud.mohammed.movieapp.data.repository
 
 import android.annotation.SuppressLint
 import android.util.Log
+import android.webkit.ValueCallback
 import androidx.paging.PagedList
 import com.mahmoud.mohammed.movieapp.data.model.Movie
-import com.mahmoud.mohammed.movieapp.data.remote.MovieRemoteDataSourceDownloader
-import com.mahmoud.mohammed.movieapp.data.remote.toMovieEntity
-import io.github.erikcaffrey.arch_components_paging_library.data.room.MoviesLocalDataSource
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class PageListMovieBoundaryCallback (private val moviesRemoteDataSource: MovieRemoteDataSourceDownloader,
+class PageListMovieBoundaryCallback @Inject constructor (private val remoteDataRepository: RemoteDataRepository,
                                      private val locaDataSource: MoviesLocalDataSource) :
         PagedList.BoundaryCallback<Movie>() {
     private var isRequestRunning = false
     private var requestedPage = 1
+    private var isMovieListArrived = false
 
     override fun onZeroItemsLoaded() {
         Log.i(TAG, "onZeroItemsLoaded")
@@ -34,8 +34,9 @@ class PageListMovieBoundaryCallback (private val moviesRemoteDataSource: MovieRe
     private fun fetchAndStoreMovies() {
         if (isRequestRunning) return
         isRequestRunning = true
-        moviesRemoteDataSource
-                .getMovieList(requestedPage)
+        remoteDataRepository.getMovieList(requestedPage,callBack = ValueCallback {
+                    isMovieListArrived=it
+                })
                 .map {
                     movieApiList ->
                     movieApiList.map {

@@ -1,8 +1,7 @@
-package com.mahmoud.mohammed.movieapp.data.remote
+package com.mahmoud.mohammed.movieapp.data.model
 
 import com.google.gson.annotations.SerializedName
 import com.mahmoud.mohammed.movieapp.common.Api.IMAGES_URL
-import com.mahmoud.mohammed.movieapp.data.model.Movie
 
 data class MovieApi(@SerializedName("id") val id: Int,
                     @SerializedName("title") val title: String,

@@ -1,6 +1,6 @@
 package com.mahmoud.mohammed.movieapp.dagger.network
 
-import com.mahmoud.mohammed.movieapp.data.remote.MoviesService
+import com.mahmoud.mohammed.movieapp.common.Api.THE_MOVIE_URL
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -8,15 +8,14 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-
-
-private const val BASE_URL = "http://api.themoviedb.org/"
+//
+//http://api.themoviedb.org/
+private const val BASE_URL = THE_MOVIE_URL
 
 @Module
 class NetworkModule {
-
     @Provides
-    fun providesCoinMarketCapApi(retrofit: Retrofit) = retrofit.create(MoviesService::class.java)
+    fun providesMoviesApi(retrofit: Retrofit) = retrofit.create(MoviesService::class.java)
 
     @Provides
     fun providesRetrofit(okHttpClient: OkHttpClient) =
