@@ -1,10 +1,7 @@
 package com.mahmoud.mohammed.movieapp.data.db
 
-import androidx.paging.DataSource
 import androidx.room.*
-import com.mahmoud.mohammed.movieapp.common.CONSTANTS.SELECT_MOVIE
 import com.mahmoud.mohammed.movieapp.data.entities.MovieData
-import com.mahmoud.mohammed.movieapp.data.model.Movie
 
 @Dao
 interface MoviesDao {

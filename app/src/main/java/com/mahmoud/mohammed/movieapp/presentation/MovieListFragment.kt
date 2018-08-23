@@ -7,19 +7,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.paging.PagedList
 import com.mahmoud.mohammed.movieapp.R
-import com.mahmoud.mohammed.movieapp.common.ViewModelHelper
-import com.mahmoud.mohammed.movieapp.data.model.Movie
-import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
-import java.security.cert.Extension
 import javax.inject.Inject
 
 fun newMovieListFragment() = MovieListFragment()

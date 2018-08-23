@@ -1,14 +1,27 @@
 package com.mahmoud.mohammed.movieapp.common
 
 import com.mahmoud.mohammed.movieapp.BuildConfig
+import com.mahmoud.mohammed.movieapp.data.api.MovieListResult
+import com.mahmoud.mohammed.movieapp.data.entities.DetailsData
+import io.reactivex.Observable
+import retrofit2.http.GET
+import retrofit2.http.Path
 
-object Api {
-    const val THE_MOVIE_URL = "https://api.themoviedb.org/3/"
-    const val IMAGES_URL = "https://image.tmdb.org/t/p/w185_and_h278_bestv2"
+interface Api {
+
+    @GET("movie/{id}?append_to_response=videos,reviews")
+    fun getMovieDetails(@Path("id") movieId: Int): Observable<DetailsData>
+
+    @GET("movie/popular") ///movie/now_playing
+    fun getPopularMovies(): Observable<MovieListResult>
+
 }
 
 object Endpoint {
     const val DISCOVER = "discover/movie"
+    const   val THE_MOVIE_URL = "https://api.themoviedb.org/3/"
+    const val IMAGES_URL = "https://image.tmdb.org/t/p/w185_and_h278_bestv2"
+
 }
 
 object Query {

@@ -1,6 +1,7 @@
 package com.mahmoud.mohammed.movieapp.dagger.network
 
-import com.mahmoud.mohammed.movieapp.common.Api.THE_MOVIE_URL
+import com.mahmoud.mohammed.movieapp.common.Api
+import com.mahmoud.mohammed.movieapp.common.Endpoint.THE_MOVIE_URL
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -15,7 +16,7 @@ private const val BASE_URL = THE_MOVIE_URL
 @Module
 class NetworkModule {
     @Provides
-    fun providesMoviesApi(retrofit: Retrofit) = retrofit.create(MoviesService::class.java)
+    fun providesMoviesApi(retrofit: Retrofit) = retrofit.create(Api::class.java)
 
     @Provides
     fun providesRetrofit(okHttpClient: OkHttpClient) =

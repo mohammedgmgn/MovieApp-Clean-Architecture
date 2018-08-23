@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.util.Log
 import android.webkit.ValueCallback
 import androidx.paging.PagedList
-import com.mahmoud.mohammed.movieapp.data.model.Movie
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 

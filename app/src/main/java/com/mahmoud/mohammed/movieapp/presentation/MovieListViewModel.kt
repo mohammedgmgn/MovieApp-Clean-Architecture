@@ -4,8 +4,7 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
-import com.mahmoud.mohammed.movieapp.data.model.Movie
-import com.mahmoud.mohammed.movieapp.data.repository.MoviesRepository
+import com.mahmoud.mohammed.movieapp.domain.MoviesRepository
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
