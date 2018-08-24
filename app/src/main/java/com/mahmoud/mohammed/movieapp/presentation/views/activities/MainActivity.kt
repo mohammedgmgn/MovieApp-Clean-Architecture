@@ -7,12 +7,10 @@ import com.mahmoud.mohammed.movieapp.presentation.views.fragments.MOVIE_LIST_FRA
 import com.mahmoud.mohammed.movieapp.presentation.views.fragments.newMovieListFragment
 
 class MainActivity : AppCompatActivity() {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
-     //   AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(findViewById(R.id.my_toolbar))
             if (savedInstanceState == null) {
                 supportFragmentManager.beginTransaction()
                         .replace(R.id.container, newMovieListFragment(), MOVIE_LIST_FRAGMENT_TAG)

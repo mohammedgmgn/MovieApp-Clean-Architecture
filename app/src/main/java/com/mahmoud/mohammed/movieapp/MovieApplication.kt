@@ -23,9 +23,6 @@ class MovieApplication : Application()//, HasActivityInjector
 
     private var popularMoviesComponent: PopularSubComponent? = null
 
-   /* @Inject
-    lateinit var dispatchingActivityInjector: DispatchingAndroidInjector<Activity>
-    */
     override fun onCreate() {
         super.onCreate()
         initDependencies()
@@ -39,8 +36,6 @@ class MovieApplication : Application()//, HasActivityInjector
                 .dataModule(DataModule())
                 .build()
 
-       /* DaggerApplicationComponent.create()
-                .inject(this)*/
 
 
     }
@@ -51,5 +46,7 @@ class MovieApplication : Application()//, HasActivityInjector
     }
 
 
-  //  override fun activityInjector(): AndroidInjector<Activity> = dispatchingActivityInjector
+     fun releasePopularComponent() {
+         popularMoviesComponent = null
+     }
 }

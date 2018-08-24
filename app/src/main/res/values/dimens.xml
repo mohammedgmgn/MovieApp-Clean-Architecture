@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="general_text_size">16sp</dimen>
+    <dimen name="spacingitem">63dp</dimen>
+
+</resources>

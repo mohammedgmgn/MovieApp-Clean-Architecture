@@ -7,7 +7,6 @@ import com.mahmoud.mohammed.movieapp.presentation.views.fragments.PopularMoviesV
 import com.mahmoud.mohammed.movieapp.presentation.common.ASyncTransformer
 import dagger.Module
 import dagger.Provides
-
 @Module
 class PopularMoviesModule {
     @PopularScope
