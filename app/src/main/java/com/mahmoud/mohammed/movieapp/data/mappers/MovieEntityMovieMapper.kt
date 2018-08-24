@@ -1,4 +1,4 @@
-package com.mahmoud.mohammed.movieapp
+package com.mahmoud.mohammed.movieapp.data.mappers
 
 import com.mahmoud.mohammed.movieapp.domain.Mapper
 import com.mahmoud.mohammed.movieapp.domain.entities.MovieEntity
@@ -7,7 +7,6 @@ import com.mahmoud.mohammed.movieapp.presentation.entities.MovieDetails
 import com.mahmoud.mohammed.movieapp.presentation.entities.Review
 import com.mahmoud.mohammed.movieapp.presentation.entities.Video
 import javax.inject.Inject
-import javax.inject.Singleton
 
 
 //@Singleton
