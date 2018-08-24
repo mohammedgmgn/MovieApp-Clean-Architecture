@@ -1,10 +1,21 @@
 ## MovieApp
 
 
-**Project Overview**
+## Project Overview
 
-This project aims to demonstrate the usage of Android Architecture Components and how this components can be used in an application with a MVVM architecture in Kotlin
+This project aims to demonstrate the usage of Android Architecture Components and how this components can be used in an application with a MVVM architecture in Kotlin 
 
+## Project Description
+
+First of all, I would like to show how I made the packages structure of the project For achieving The separation of concerns 
+
+
+- ## Presentation layer 
+    The Activities, Fragments and ViewModels.
+- ## Domain layer 
+    With the Use Cases
+- ##  Data layer 
+    With the Repositories.
 
 
 ## What is Architecture Components ? 
