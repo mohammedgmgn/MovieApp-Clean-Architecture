@@ -1,7 +1,7 @@
 package com.mahmoud.mohammed.movieapp.dagger.activities
 
 import android.app.Activity
-import com.mahmoud.mohammed.movieapp.presentation.MainActivity
+import com.mahmoud.mohammed.movieapp.presentation.views.activities.MainActivity
 import dagger.Binds
 import dagger.Module
 import dagger.android.ActivityKey

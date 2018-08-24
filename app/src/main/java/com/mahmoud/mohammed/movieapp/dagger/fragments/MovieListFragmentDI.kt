@@ -1,7 +1,7 @@
 package com.mahmoud.mohammed.movieapp.dagger.fragments
 
 import androidx.fragment.app.Fragment
-import com.mahmoud.mohammed.movieapp.presentation.MovieListFragment
+import com.mahmoud.mohammed.movieapp.presentation.views.fragments.MovieListFragment
 import dagger.Binds
 import dagger.Module
 import dagger.Subcomponent

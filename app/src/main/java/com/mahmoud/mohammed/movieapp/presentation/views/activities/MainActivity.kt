@@ -1,0 +1,26 @@
+package com.mahmoud.mohammed.movieapp.presentation.views.activities
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.mahmoud.mohammed.movieapp.R
+import com.mahmoud.mohammed.movieapp.presentation.views.fragments.MOVIE_LIST_FRAGMENT_TAG
+import com.mahmoud.mohammed.movieapp.presentation.views.fragments.newMovieListFragment
+
+class MainActivity : AppCompatActivity() {
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+     //   AndroidInjection.inject(this)
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+            if (savedInstanceState == null) {
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.container, newMovieListFragment(), MOVIE_LIST_FRAGMENT_TAG)
+                        .commitNow()
+                title = getString(R.string.popular)
+            }
+
+    }
+}
+
+

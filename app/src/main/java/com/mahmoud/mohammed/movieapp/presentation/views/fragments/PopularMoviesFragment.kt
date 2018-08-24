@@ -1,4 +1,4 @@
-package com.mahmoud.mohammed.movieapp.presentation
+package com.mahmoud.mohammed.movieapp.presentation.views.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -6,12 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.mahmoud.mohammed.movieapp.MovieApplication
 import com.mahmoud.mohammed.movieapp.R
-import dagger.android.support.AndroidSupportInjection
-import javax.inject.Inject
 
 fun newMovieListFragment() = MovieListFragment()
 val MOVIE_LIST_FRAGMENT_TAG = MovieListFragment::class.java.name
@@ -23,7 +19,7 @@ class MovieListFragment : Fragment() {
     lateinit var viewModel: PopularMoviesViewModel*/
 
     override fun onAttach(context: Context?) {
-        AndroidSupportInjection.inject(this)
+     //   AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
 

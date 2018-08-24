@@ -1,4 +1,4 @@
-package com.mahmoud.mohammed.movieapp.common
+package com.mahmoud.mohammed.movieapp.common.imagehelper
 
 import android.widget.ImageView
 

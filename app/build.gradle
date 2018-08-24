@@ -25,6 +25,10 @@ android {
             it.buildConfigField 'String', 'THE_MOVIE_API_KEY', "\"69f8d44407d7b73a4103add4c76fccb6\""
         }
     }
+    kapt {
+        generateStubs = true
+    }
+
 }
 
 dependencies {

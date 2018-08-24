@@ -2,12 +2,9 @@ package com.mahmoud.mohammed.movieapp.dagger.application
 
 import com.mahmoud.mohammed.movieapp.dagger.activities.MainActivityModule
 import com.mahmoud.mohammed.movieapp.dagger.data.DataModule
-import com.mahmoud.mohammed.movieapp.dagger.fragments.MovieListFragmentModule
 import com.mahmoud.mohammed.movieapp.dagger.network.NetworkModule
 import com.mahmoud.mohammed.movieapp.dagger.popular.PopularMoviesModule
 import com.mahmoud.mohammed.movieapp.dagger.popular.PopularSubComponent
-import com.mahmoud.mohammed.movieapp.dagger.viewmodel.ViewModelModule
-import com.mahmoud.mohammed.movieapp.presentation.MovieListFragment
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton

@@ -1,4 +1,4 @@
-package com.mahmoud.mohammed.movieapp.presentation
+package com.mahmoud.mohammed.movieapp.presentation.views.fragments
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

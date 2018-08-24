@@ -16,9 +16,7 @@ class NetworkModule(private val baseUrl: String, private val apiKey: String) {
     @Singleton
     @Provides
     fun provideInterceptors(): ArrayList<Interceptor> {
-
         val interceptors = arrayListOf<Interceptor>()
-
         val keyInterceptor = Interceptor { chain ->
 
             val original = chain.request()

@@ -1,8 +1,8 @@
 package com.mahmoud.mohammed.movieapp.dagger.application
 
 import android.content.Context
-import com.mahmoud.mohammed.movieapp.common.ImageLoader
-import com.mahmoud.mohammed.movieapp.common.PicassoImageLoader
+import com.mahmoud.mohammed.movieapp.common.imagehelper.ImageLoader
+import com.mahmoud.mohammed.movieapp.common.imagehelper.PicassoImageLoader
 import com.squareup.picasso.Picasso
 import dagger.Module
 import dagger.Provides

@@ -14,15 +14,18 @@ import com.mahmoud.mohammed.movieapp.dagger.popular.PopularSubComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Inject
 
-class MovieApplication : Application(), HasActivityInjector {
+class MovieApplication : Application()//, HasActivityInjector
+ {
     lateinit var mainComponent: MainComponent
 
     private var popularMoviesComponent: PopularSubComponent? = null
 
-    @Inject
+   /* @Inject
     lateinit var dispatchingActivityInjector: DispatchingAndroidInjector<Activity>
+    */
     override fun onCreate() {
         super.onCreate()
         initDependencies()
@@ -35,8 +38,8 @@ class MovieApplication : Application(), HasActivityInjector {
                 .networkModule(NetworkModule(THE_MOVIE_URL, API_KEY_VALUE))
                 .dataModule(DataModule())
                 .build()
-/*
-        DaggerApplicationComponent.create()
+
+       /* DaggerApplicationComponent.create()
                 .inject(this)*/
 
 
@@ -48,5 +51,5 @@ class MovieApplication : Application(), HasActivityInjector {
     }
 
 
-    override fun activityInjector(): AndroidInjector<Activity> = dispatchingActivityInjector
+  //  override fun activityInjector(): AndroidInjector<Activity> = dispatchingActivityInjector
 }
