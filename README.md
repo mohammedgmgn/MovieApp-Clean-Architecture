@@ -11,7 +11,7 @@ This project aims to demonstrate the usage of Android Architecture Components an
 
 Architecture Components are a set of Android libraries for structuring your app in a way that is robust, testable, and maintainable
 <p align="center">
-<img src="arccomponents.png" alt="" width="270" height="480"/>
+<img src="arccomponents.png" alt="" width="480" height="480"/>
 </p>
 
 
