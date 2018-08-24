@@ -7,7 +7,9 @@ import io.reactivex.Observable
 import javax.inject.Inject
 
 open class GetPopularMovies  constructor(transformer: Transformer<List<MovieEntity>>,
-                                                private val moviesRepository: MoviesRepository) : UseCase<List<MovieEntity>>(transformer) {
+                                         private val moviesRepository: MoviesRepository) :
+                                         UseCase<List<MovieEntity>>(transformer)
+{
     override fun createObservable(data: Map<String, Any>?): Observable<List<MovieEntity>> {
         return moviesRepository.getMovies()
     }
