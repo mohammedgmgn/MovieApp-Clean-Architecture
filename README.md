@@ -40,5 +40,6 @@ This class is the single source of truth for all of our app's data and acts as a
 ## Remote Network Data Source 
 
 Manages data from a remote data source, such as the internet.
+
 Model - Manages local data stored in the database.
 
