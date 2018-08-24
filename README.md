@@ -15,7 +15,7 @@ Architecture Components are a set of Android libraries for structuring your app 
 </p>
 
 
-## UI Controllers - 
+## UI Controllers  
 are activities or fragments. The only job of UI controllers is to know how to display data and pass on UI events, such as the user pressing a button. UI Controllers neither contain the UI data, nor directly manipulate data.
 
 ## ViewModels and LiveData 
