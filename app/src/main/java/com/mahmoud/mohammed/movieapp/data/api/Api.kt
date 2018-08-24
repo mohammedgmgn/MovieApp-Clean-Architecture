@@ -14,7 +14,4 @@ interface Api {
     @GET("movie/popular") ///movie/now_playing
     fun getPopularMovies(): Observable<MovieListResult>
 
-    @GET("search/movie")
-    fun searchMovies(@Query("query") query: String): Observable<MovieListResult>
-
 }

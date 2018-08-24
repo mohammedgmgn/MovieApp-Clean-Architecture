@@ -1,17 +1,14 @@
 package com.mahmoud.mohammed.movieapp.presentation
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.paging.PagedList
+import com.mahmoud.mohammed.movieapp.MovieApplication
 import com.mahmoud.mohammed.movieapp.R
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
@@ -21,9 +18,9 @@ val MOVIE_LIST_FRAGMENT_TAG = MovieListFragment::class.java.name
 
 class MovieListFragment : Fragment() {
 
-    @Inject
+  /*  @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    lateinit var viewModel: MovieListViewModel
+    lateinit var viewModel: PopularMoviesViewModel*/
 
     override fun onAttach(context: Context?) {
         AndroidSupportInjection.inject(this)
@@ -32,6 +29,7 @@ class MovieListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+       (activity?.application as MovieApplication).createPopularComponenet().inject(this)
         initViewModel()
       //  initAdapter()
     }
@@ -45,17 +43,11 @@ class MovieListFragment : Fragment() {
 
 
     private fun initViewModel() {
-
+/*
         viewModel = ViewModelProviders.of(this, viewModelFactory)
-                .get(MovieListViewModel::class.java)
-        viewModel.getMovies()
+                .get(PopularMoviesViewModel::class.java)*/
 
 
-    }
-    @SuppressLint("LogNotTimber")
-    private fun initAdapter() {
-        viewModel.pagedListMovie.observe(this, Observer<PagedList<Movie>> {
-            Log.d("movieObserver", "Movies: ${it?.size}")
-        })
+
     }
 }

@@ -1,40 +1,66 @@
 package com.mahmoud.mohammed.movieapp.dagger.network
 
-import com.mahmoud.mohammed.movieapp.common.Api
-import com.mahmoud.mohammed.movieapp.common.Endpoint.THE_MOVIE_URL
+import com.mahmoud.mohammed.movieapp.data.api.Api
 import dagger.Module
 import dagger.Provides
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-//
-//http://api.themoviedb.org/
-private const val BASE_URL = THE_MOVIE_URL
+import javax.inject.Singleton
 
 @Module
-class NetworkModule {
-    @Provides
-    fun providesMoviesApi(retrofit: Retrofit) = retrofit.create(Api::class.java)
+class NetworkModule(private val baseUrl: String, private val apiKey: String) {
 
+    @Singleton
     @Provides
-    fun providesRetrofit(okHttpClient: OkHttpClient) =
-            Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .client(okHttpClient)
+    fun provideInterceptors(): ArrayList<Interceptor> {
+
+        val interceptors = arrayListOf<Interceptor>()
+
+        val keyInterceptor = Interceptor { chain ->
+
+            val original = chain.request()
+            val originalHttpUrl = original.url()
+
+            val url = originalHttpUrl.newBuilder()
+                    .addQueryParameter("api_key", apiKey)
                     .build()
 
+            val requestBuilder = original.newBuilder()
+                    .url(url)
 
-    @Provides
-    fun providesOkHttpClient(): OkHttpClient {
-        val logging = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
+            val request = requestBuilder.build()
+            return@Interceptor chain.proceed(request)
         }
-        return OkHttpClient.Builder()
-                .addInterceptor(logging)
+
+        interceptors.add(keyInterceptor)
+        return interceptors
+    }
+
+    @Singleton
+    @Provides
+    fun provideRetrofit(interceptors: ArrayList<Interceptor>): Retrofit {
+
+        val clientBuilder = OkHttpClient.Builder()
+        if (!interceptors.isEmpty()) {
+            interceptors.forEach { interceptor ->
+                clientBuilder.addInterceptor(interceptor)
+            }
+        }
+        return Retrofit.Builder()
+                .client(clientBuilder.build())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(baseUrl)
                 .build()
     }
+
+    @Singleton
+    @Provides
+    fun provideApi(retrofit: Retrofit): Api {
+        return retrofit.create(Api::class.java)
+    }
+
 }
