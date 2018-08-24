@@ -9,6 +9,9 @@ This project aims to demonstrate the usage of Android Architecture Components an
 
 First of all, I would like to show how I made the packages structure of the project For achieving The separation of concerns 
 
+<p align="center">
+<img src="ProjectStructure.PNG" alt="" width="200" height="200"/>
+</p>
 
 - ## Presentation layer 
     The Activities, Fragments and ViewModels.
@@ -16,6 +19,7 @@ First of all, I would like to show how I made the packages structure of the proj
     With the Use Cases
 - ##  Data layer 
     With the Repositories.
+
 
 
 ## What is Architecture Components ? 
