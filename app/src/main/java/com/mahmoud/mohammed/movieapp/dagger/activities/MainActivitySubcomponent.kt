@@ -1,7 +1,7 @@
 package com.mahmoud.mohammed.movieapp.dagger.activities
 
 import com.mahmoud.mohammed.movieapp.dagger.fragments.MovieListFragmentModule
-import com.mahmoud.mohammed.movieapp.presentation.views.activities.MainActivity
+import com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.activities.MainActivity
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 

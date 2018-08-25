@@ -3,7 +3,7 @@ package com.mahmoud.mohammed.movieapp.dagger.popular
 import com.mahmoud.mohammed.movieapp.data.mappers.MovieEntityMovieMapper
 import com.mahmoud.mohammed.movieapp.domain.MoviesRepository
 import com.mahmoud.mohammed.movieapp.domain.usecases.GetPopularMovies
-import com.mahmoud.mohammed.movieapp.presentation.views.fragments.PopularMoviesVMFactory
+import com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments.PopularMoviesVMFactory
 import com.mahmoud.mohammed.movieapp.presentation.common.ASyncTransformer
 import dagger.Module
 import dagger.Provides

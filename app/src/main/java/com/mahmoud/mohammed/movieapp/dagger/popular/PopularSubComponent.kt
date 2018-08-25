@@ -1,6 +1,6 @@
 package com.mahmoud.mohammed.movieapp.dagger.popular
 
-import com.mahmoud.mohammed.movieapp.presentation.views.fragments.MovieListFragment
+import com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments.MovieListFragment
 import dagger.Subcomponent
 @PopularScope
 @Subcomponent(modules = [PopularMoviesModule::class])

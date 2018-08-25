@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="general_text_size">16sp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="spacing">18dp</dimen>
     <dimen name="spacingitem">63dp</dimen>
+    <dimen name="spacingnotification">20dp</dimen>
+    <dimen name="paddingsmall">8dp</dimen>
+    <dimen name="paddingmed">16dp</dimen>
+    <dimen name="textsize">18sp</dimen>
+    <dimen name="largesize">64dp</dimen>
 
 </resources>

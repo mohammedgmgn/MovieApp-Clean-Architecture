@@ -1,10 +1,10 @@
-package com.mahmoud.mohammed.movieapp.presentation.views.activities
+package com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mahmoud.mohammed.movieapp.R
-import com.mahmoud.mohammed.movieapp.presentation.views.fragments.MOVIE_LIST_FRAGMENT_TAG
-import com.mahmoud.mohammed.movieapp.presentation.views.fragments.newMovieListFragment
+import com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments.MOVIE_LIST_FRAGMENT_TAG
+import com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments.newMovieListFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

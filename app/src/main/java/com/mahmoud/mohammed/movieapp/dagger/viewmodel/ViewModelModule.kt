@@ -2,7 +2,7 @@ package com.mahmoud.mohammed.movieapp.dagger.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.mahmoud.mohammed.movieapp.presentation.views.fragments.PopularMoviesViewModel
+import com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments.PopularMoviesViewModel
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module

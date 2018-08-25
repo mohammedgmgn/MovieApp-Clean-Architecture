@@ -1,4 +1,4 @@
-package com.mahmoud.mohammed.movieapp.presentation.views.fragments
+package com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments
 
 import com.mahmoud.mohammed.movieapp.presentation.entities.Movie
 

@@ -1,7 +1,6 @@
-package com.mahmoud.mohammed.movieapp.presentation.views.fragments
+package com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.mahmoud.mohammed.movieapp.base.BaseViewModel
 import com.mahmoud.mohammed.movieapp.common.SingleLiveEvent
 import com.mahmoud.mohammed.movieapp.domain.Mapper
