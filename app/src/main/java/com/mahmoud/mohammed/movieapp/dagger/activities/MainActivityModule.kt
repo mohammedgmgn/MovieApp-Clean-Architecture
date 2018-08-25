@@ -16,6 +16,4 @@ abstract class MainActivityModule {
     @ActivityKey(MainActivity::class)
     abstract fun bindMainActivityInjectorFactory(builder: MainActivitySubcomponent.Builder)
             : AndroidInjector.Factory<out Activity>
-
-
 }
