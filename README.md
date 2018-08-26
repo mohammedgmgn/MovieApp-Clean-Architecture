@@ -22,9 +22,8 @@ First of all, I would like to show how I made the packages structure of the proj
 
 
 
-## What is Architecture Components ? 
-
-Architecture Components are a set of Android libraries for structuring your app in a way that is robust, testable, and maintainable
+## Let's explore Architecture Components  
+According to [Android Documentation](https://developer.android.com/topic/libraries/architecture), Architecture Components are a set of Android libraries for structuring your app in a way that is robust, testable, and maintainable
 <p align="center">
 <img src="arccomponents.png" alt="" width="480" height="480"/>
 </p>
