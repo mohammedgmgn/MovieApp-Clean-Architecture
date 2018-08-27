@@ -20,8 +20,11 @@ First of all, I would like to show how I made the packages structure of the proj
 
 - ## Presentation layer 
     The Activities, Fragments and ViewModels.
+
 - ## Domain layer 
-    With the Use Cases
+    With the Use Cases that  will include all business logic and interact between Data and Presentation layer by means of interface and     interactors. The objective is to make the domain layer independent of anything, so the business logic can be tested without 
+    any dependency to external components.
+
 - ##  Data layer 
     With the Repositories.
 
