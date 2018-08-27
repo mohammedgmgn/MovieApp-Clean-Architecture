@@ -1,7 +1,7 @@
 ## MovieApp
 <p align="center">
-<img src="Screenshot_popMovies.png" width="250"/>
-<img src="Screenshot_DetailMovies.png" width="250"/>
+<img src="Screenshot_popMovies.png" width="200"/>
+<img src="Screenshot_DetailMovies.png" width="200"/>
 </p>
 
 
