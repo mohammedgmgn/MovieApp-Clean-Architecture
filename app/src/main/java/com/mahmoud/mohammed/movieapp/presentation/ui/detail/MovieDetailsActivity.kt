@@ -1,5 +1,6 @@
 package com.mahmoud.mohammed.movieapp.presentation.ui.detail
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +19,7 @@ import com.mahmoud.mohammed.movieapp.MovieApplication
 import com.mahmoud.mohammed.movieapp.R
 import com.mahmoud.mohammed.movieapp.common.imagehelper.ImageLoader
 import kotlinx.android.synthetic.main.activity_movie_details.*
+import kotlinx.android.synthetic.main.movie_details_fragment.*
 import javax.inject.Inject
 
 class MovieDetailsActivity : AppCompatActivity() {
@@ -58,6 +61,7 @@ class MovieDetailsActivity : AppCompatActivity() {
         imageLoader.load(posterUrl, backdrop)
 
         factory.movieId = movieId
+        fav_btn.setOnClickListener { detailsViewModel.favoriteButtonClicked() }
 
         detailsViewModel = ViewModelProviders.of(this, factory).get(MovieDetailsViewModel::class.java)
 
@@ -75,7 +79,7 @@ class MovieDetailsActivity : AppCompatActivity() {
             handleViewState(viewState)
         })
         detailsViewModel.favoriteState.observe(this, Observer {
-            favorite -> //handleFavoriteStateChange(favorite)
+            favorite -> handleFavoriteStateChange(favorite)
         })
         detailsViewModel.errorState.observe(this, Observer { throwable ->
             throwable?.let {
@@ -83,6 +87,17 @@ class MovieDetailsActivity : AppCompatActivity() {
             }
         })
     }
+    @SuppressLint("RestrictedApi")
+    private fun handleFavoriteStateChange(favorite: Boolean?) {
+        if (favorite == null) return
+        fav_btn.visibility = View.VISIBLE
+        fav_btn.setImageDrawable(
+                if (favorite)
+                    ContextCompat.getDrawable(this, R.drawable.ic_like)
+                else
+                    ContextCompat.getDrawable(this, R.drawable.ic_like_outline))
+    }
+
     private fun handleViewState(state: MovieDetailsViewState?) {
         if (state == null)
             return
