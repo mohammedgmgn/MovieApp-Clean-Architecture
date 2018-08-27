@@ -47,11 +47,6 @@ class RoomFavoritesMovieCache (database: MoviesDatabase,
         return dao.getFavorites().isEmpty()
     }
 
-    override fun search(query: String): Observable<List<MovieEntity>> {
-        val searchQuery = "%$query%"
-        return Observable.fromCallable {
-            dao.search(searchQuery).map { dataToEntityMapper.mapFrom(it) }
-        }
-    }
+
 
 }

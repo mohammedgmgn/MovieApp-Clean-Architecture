@@ -1,13 +1,14 @@
-package com.mahmoud.mohammed.movieapp.data.repository
+package com.mahmoud.mohammed.movieapp
 
 import com.mahmoud.mohammed.movieapp.domain.MoviesCache
 import com.mahmoud.mohammed.movieapp.domain.entities.MovieEntity
 import com.mahmoud.mohammed.movieapp.domain.entities.Optional
 import io.reactivex.Observable
 
-class MemoryMoviesCache : MoviesCache {
+class TestMoviesCache : MoviesCache {
 
-    private val movies: LinkedHashMap<Int, MovieEntity> = LinkedHashMap()
+    private val movies: HashMap<Int, MovieEntity> = HashMap()
+
 
     override fun isEmpty(): Boolean {
         return movies.isEmpty()
@@ -36,7 +37,5 @@ class MemoryMoviesCache : MoviesCache {
     override fun get(movieId: Int): Observable<Optional<MovieEntity>> {
         return Observable.just(Optional.of(movies[movieId]))
     }
-
-
 }
 

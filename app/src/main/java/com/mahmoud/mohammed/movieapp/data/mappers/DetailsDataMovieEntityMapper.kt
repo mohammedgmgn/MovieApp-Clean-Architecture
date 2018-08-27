@@ -6,7 +6,7 @@ import com.mahmoud.mohammed.movieapp.domain.entities.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
-//@Singleton
+@Singleton
 class DetailsDataMovieEntityMapper @Inject
 constructor() : Mapper<DetailsData, MovieEntity>() {
 
