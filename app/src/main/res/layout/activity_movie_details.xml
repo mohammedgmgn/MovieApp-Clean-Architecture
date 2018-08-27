@@ -3,11 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main_done"
+    android:id="@+id/activity_detail_id"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_editor_absoluteX="0dp"
     app:layout_editor_absoluteY="80dp"
+
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="80dp">
 
@@ -37,34 +38,95 @@
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1" />
 
+
     <ImageView
-        android:id="@+id/favorite"
-        android:layout_width="36dp"
-        android:layout_height="48dp"
+        android:id="@+id/posterimage"
+        android:layout_width="150dp"
+        android:layout_height="255dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="252dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backdrop"
+        app:layout_constraintVertical_bias="0.014" />
+
+    <TextView
+        android:id="@+id/movie_title"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/info_background"
-        android:padding="5dp"
-        android:src="@drawable/ic_star"
-        app:layout_constraintBottom_creator="0"
+        android:paddingLeft="@dimen/paddingmed"
+        android:paddingTop="@dimen/paddingsmall"
+        android:paddingRight="@dimen/paddingmed"
+        android:paddingBottom="@dimen/paddingsmall"
+        android:text="The Meg"
+        android:textSize="@dimen/textsize"
+        app:layout_constraintBottom_toTopOf="@+id/tagline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintStart_toEndOf="@+id/posterimage"
+        app:layout_constraintTop_toTopOf="@+id/backdrop"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="236dp"
+        android:paddingLeft="@dimen/paddingmed"
+        android:paddingRight="@dimen/paddingmed"
+        android:paddingBottom="@dimen/paddingsmall"
+        android:text="Chomp On This"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
-        app:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/activity_main_done"
+        app:layout_constraintStart_toEndOf="@+id/posterimage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/date_status"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_below="@id/tagline"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="@dimen/paddingmed"
+        android:paddingRight="@dimen/paddingmed"
+        android:paddingBottom="@dimen/paddingmed"
+        android:text="2018-08-09 (Released)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_creator="1"
-        app:layout_constraintTop_toTopOf="@+id/activity_main_done"
-        app:layout_constraintVertical_bias="0.407"
-        app:layout_editor_absoluteX="359dp"
-        app:layout_editor_absoluteY="104dp"
-        tools:layout_constraintBottom_creator="0"
-        tools:layout_constraintRight_creator="0"
-        tools:layout_constraintTop_creator="0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.647" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

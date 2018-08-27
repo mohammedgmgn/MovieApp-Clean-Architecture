@@ -27,8 +27,6 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     private lateinit var detailsViewModel: MovieDetailsViewModel
     private lateinit var backdropImage: ImageView
-    private lateinit var posterImage: ImageView
-    private lateinit var title: TextView
     private lateinit var overview: TextView
     private lateinit var releaseDate: TextView
     private lateinit var score: TextView
@@ -89,11 +87,12 @@ class MovieDetailsActivity : AppCompatActivity() {
         if (state == null)
             return
 
-/*        state.backdropUrl?.let {
+        state.backdropUrl?.let {
 
-            imageLoader.load(it, backdrop)
-
-        }*/
+            imageLoader.load(it, posterimage)
+        }
+        movie_title.text=state.title
+        date_status.text=state.releaseDate
 
 
     }
