@@ -1,4 +1,9 @@
 ## MovieApp
+<p align="center">
+<img src="Screenshot_popMovies.png" width="200"/>
+<img src="Screenshot_DetailMovies.png" width="200"/>
+</p>
+
 
 
 ## Project Overview
@@ -56,7 +61,10 @@ Model - Manages local data stored in the database.
 - [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room.html)
 - [Picasso](https://github.com/square/picasso)
 
-
+### Refrences: ###
+- [ِAndroid Documentation](https://developer.android.com/topic/libraries/architecture)
+- [source code for the official Google I/O 2018 for Android app](https://android-developers.googleblog.com/2018/08/google-releases-source-for-google-io.html)
+- [Architecture Components Code Lab](https://codelabs.developers.google.com/codelabs/build-app-with-arch-components/index.html?index=..%2F..%2Findex#0)
 
 ### License: ###
 ~~~~
