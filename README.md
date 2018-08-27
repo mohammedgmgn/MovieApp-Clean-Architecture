@@ -39,7 +39,7 @@ are activities or fragments. The only job of UI controllers is to know how to di
 
 ## ViewModels and LiveData 
 
-These classes represent all of the data needed for the UI to display. You'll learn exactly how these two classes function together in this codelab.
+These classes represent all of the data needed for the UI to display. You'll learn exactly how these two classes function together in this Project.
 
 ## Repository 
 
