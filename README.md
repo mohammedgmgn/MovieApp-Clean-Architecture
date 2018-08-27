@@ -46,6 +46,18 @@ Manages data from a remote data source, such as the internet.
 
 Model - Manages local data stored in the database.
 
+
+
+### Used libraries: ###
+- [RxJava2](https://github.com/ReactiveX/RxJava)
+- [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+- [Retrofit2](https://github.com/square/retrofit)
+- [Android architecture components](https://developer.android.com/topic/libraries/architecture/index.html)
+- [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room.html)
+- [Picasso](https://github.com/square/picasso)
+
+
+
 ### License: ###
 ~~~~
 Copyright 2018 Mohammed Mahmoud 
