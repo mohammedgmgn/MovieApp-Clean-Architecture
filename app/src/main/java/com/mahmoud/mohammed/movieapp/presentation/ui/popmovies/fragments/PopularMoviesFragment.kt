@@ -1,5 +1,6 @@
 package com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,14 +14,16 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mahmoud.mohammed.movieapp.MovieApplication
 import com.mahmoud.mohammed.movieapp.R
+import com.mahmoud.mohammed.movieapp.base.BaseFragment
 import com.mahmoud.mohammed.movieapp.common.imagehelper.ImageLoader
+import com.mahmoud.mohammed.movieapp.presentation.ui.detail.MovieDetailsActivity
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 import javax.inject.Inject
 
 fun newMovieListFragment() = MovieListFragment()
 val MOVIE_LIST_FRAGMENT_TAG = MovieListFragment::class.java.name
 
-class MovieListFragment : Fragment() {
+class MovieListFragment : BaseFragment() {
 
     @Inject
     lateinit var factory: PopularMoviesVMFactory
@@ -68,7 +71,12 @@ class MovieListFragment : Fragment() {
         progressBar = popular_movies_progress
         popularMoviesAdapter = PopularMoviesAdapter(imageLoader, { movie, view ->
 
-          //  navigateToMovieDetailsScreen(movie, view)
+            navigateToMovieDetailsScreen(movie)
+/*
+            val i = Intent(context, MovieDetailsActivity::class.java)
+            i.putExtra(MovieDetailsActivity.MOVIE_ID, movie.id)
+            startActivity(i);*/
+
         })
         recyclerView = popular_movies_recyclerview
         recyclerView.layoutManager = GridLayoutManager(activity, 2)

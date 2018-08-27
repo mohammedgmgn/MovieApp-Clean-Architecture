@@ -47,7 +47,8 @@ class MovieDetailsViewModel (private val getMovieDetails: GetMovieDetails,
                             return@BiFunction movie
                         })
                         .subscribe(
-                                { onMovieDetailsReceived(it) },
+                                {
+                                    onMovieDetailsReceived(it) },
                                 {
                                     errorState.value = it }
                         )

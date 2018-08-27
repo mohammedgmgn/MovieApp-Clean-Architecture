@@ -27,7 +27,7 @@ class MovieDetailsVMFactory(
                 removeFavoriteMovie,
                 checkFavoriteStatus,
                 mapper,
-                movieId) as T //TODO: solve casting issue
+                movieId) as T
     }
 
 }
