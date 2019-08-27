@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mahmoud.mohammed.movieapp.MovieApplication
 import com.mahmoud.mohammed.movieapp.R
 import com.mahmoud.mohammed.movieapp.base.BaseFragment
-import com.mahmoud.mohammed.movieapp.common.imagehelper.ImageLoader
 import com.mahmoud.mohammed.movieapp.presentation.ui.detail.MovieDetailsActivity
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 import javax.inject.Inject
@@ -27,8 +26,6 @@ class MovieListFragment : BaseFragment() {
 
     @Inject
     lateinit var factory: PopularMoviesVMFactory
-    @Inject
-    lateinit var imageLoader: ImageLoader
     private lateinit var viewModel: PopularMoviesViewModel
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
@@ -69,7 +66,7 @@ class MovieListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         progressBar = popular_movies_progress
-        popularMoviesAdapter = PopularMoviesAdapter(imageLoader, { movie, view ->
+        popularMoviesAdapter = PopularMoviesAdapter { movie, view ->
 
             navigateToMovieDetailsScreen(movie)
 /*
@@ -77,7 +74,7 @@ class MovieListFragment : BaseFragment() {
             i.putExtra(MovieDetailsActivity.MOVIE_ID, movie.id)
             startActivity(i);*/
 
-        })
+        }
         recyclerView = popular_movies_recyclerview
         recyclerView.layoutManager = GridLayoutManager(activity, 2)
         recyclerView.adapter = popularMoviesAdapter

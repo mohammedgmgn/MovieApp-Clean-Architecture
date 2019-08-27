@@ -14,10 +14,10 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.mahmoud.mohammed.movieapp.MovieApplication
 import com.mahmoud.mohammed.movieapp.R
-import com.mahmoud.mohammed.movieapp.common.imagehelper.ImageLoader
 import kotlinx.android.synthetic.main.activity_movie_details.*
 import kotlinx.android.synthetic.main.movie_details_fragment.*
 import javax.inject.Inject
@@ -25,8 +25,6 @@ import javax.inject.Inject
 class MovieDetailsActivity : AppCompatActivity() {
     @Inject
     lateinit var factory: MovieDetailsVMFactory
-    @Inject
-    lateinit var imageLoader: ImageLoader
 
     private lateinit var detailsViewModel: MovieDetailsViewModel
     private lateinit var backdropImage: ImageView
@@ -38,6 +36,7 @@ class MovieDetailsActivity : AppCompatActivity() {
     private lateinit var backButton: View
     // private lateinit var tagsContainer: TagContainerLayout
     private lateinit var favoriteButton: FloatingActionButton
+
     companion object {
         const val MOVIE_ID: String = "extra_movie_id"
         const val IMAGE_ID: String = "poster_id"
@@ -56,10 +55,9 @@ class MovieDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
         (application as MovieApplication).createDetailsComponent().inject(this)
-        val movieId=intent.extras.getInt(MOVIE_ID, 0)
-        val posterUrl=intent.extras.getString(IMAGE_ID, "")
-        imageLoader.load(posterUrl, backdrop)
-
+        val movieId = intent.extras.getInt(MOVIE_ID, 0)
+        val posterUrl = intent.extras.getString(IMAGE_ID, "")
+        backdrop.load(posterUrl)
         factory.movieId = movieId
         fav_btn.setOnClickListener { detailsViewModel.favoriteButtonClicked() }
 
@@ -73,13 +71,13 @@ class MovieDetailsActivity : AppCompatActivity() {
         }
 
     }
+
     private fun observeViewState() {
-        detailsViewModel.viewState.observe(this, Observer {
-            viewState ->
+        detailsViewModel.viewState.observe(this, Observer { viewState ->
             handleViewState(viewState)
         })
-        detailsViewModel.favoriteState.observe(this, Observer {
-            favorite -> handleFavoriteStateChange(favorite)
+        detailsViewModel.favoriteState.observe(this, Observer { favorite ->
+            handleFavoriteStateChange(favorite)
         })
         detailsViewModel.errorState.observe(this, Observer { throwable ->
             throwable?.let {
@@ -87,6 +85,7 @@ class MovieDetailsActivity : AppCompatActivity() {
             }
         })
     }
+
     @SuppressLint("RestrictedApi")
     private fun handleFavoriteStateChange(favorite: Boolean?) {
         if (favorite == null) return
@@ -103,11 +102,10 @@ class MovieDetailsActivity : AppCompatActivity() {
             return
 
         state.backdropUrl?.let {
-
-            imageLoader.load(it, posterimage)
+            posterimage.load(it)
         }
-        movie_title.text=state.title
-        date_status.text=state.releaseDate
+        movie_title.text = state.title
+        date_status.text = state.releaseDate
 
 
     }

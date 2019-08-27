@@ -14,7 +14,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.mahmoud.mohammed.movieapp.MovieApplication
 
 import com.mahmoud.mohammed.movieapp.R
-import com.mahmoud.mohammed.movieapp.common.imagehelper.ImageLoader
 import javax.inject.Inject
 
 class MovieDetailsFragment : Fragment() {

@@ -1,9 +1,6 @@
 package com.mahmoud.mohammed.movieapp.dagger.application
 
 import android.content.Context
-import com.mahmoud.mohammed.movieapp.common.imagehelper.ImageLoader
-import com.mahmoud.mohammed.movieapp.common.imagehelper.PicassoImageLoader
-import com.squareup.picasso.Picasso
 import dagger.Module
 import dagger.Provides
 import io.reactivex.Scheduler
@@ -24,11 +21,6 @@ class AppModule constructor(context: Context){
         return appContext
     }
 
-    @Singleton
-    @Provides
-    fun provideImageLoader(context: Context) : ImageLoader {
-        return PicassoImageLoader(Picasso.with(context))
-    }
 
     @Provides
     @Named(SCHEDULER_MAIN_THREAD)

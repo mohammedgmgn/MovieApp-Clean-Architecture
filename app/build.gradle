@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility = '1.8'
+        sourceCompatibility = '1.8'
+    }
     buildTypes.each {
         buildTypes.each {
             it.buildConfigField 'String', 'THE_MOVIE_API_KEY', "\"69f8d44407d7b73a4103add4c76fccb6\""
@@ -28,6 +32,12 @@ android {
     kapt {
         generateStubs = true
     }
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+
 
 }
 
@@ -75,7 +85,7 @@ dependencies {
     implementation 'com.google.dagger:dagger-android:2.15'
     implementation 'com.google.dagger:dagger-android-support:2.15'
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.16'
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation("io.coil-kt:coil:0.6.1")
 
 //testing
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

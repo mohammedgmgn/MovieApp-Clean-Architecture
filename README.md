@@ -62,7 +62,7 @@ Model - Manages local data stored in the database.
 - [Retrofit2](https://github.com/square/retrofit)
 - [Android architecture components](https://developer.android.com/topic/libraries/architecture/index.html)
 - [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room.html)
-- [Picasso](https://github.com/square/picasso)
+- [coil](https://github.com/coil-kt/coil)
 
 ### Refrences: ###
 - [ِAndroid Documentation](https://developer.android.com/topic/libraries/architecture)
