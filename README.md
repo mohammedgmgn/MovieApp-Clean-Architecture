@@ -57,7 +57,7 @@ Model - Manages local data stored in the database.
 
 
 ### Used libraries: ###
-- [RxJava2](https://github.com/ReactiveX/RxJava)
+- [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)
 - [RxAndroid](https://github.com/ReactiveX/RxAndroid)
 - [Retrofit2](https://github.com/square/retrofit)
 - [Android architecture components](https://developer.android.com/topic/libraries/architecture/index.html)
