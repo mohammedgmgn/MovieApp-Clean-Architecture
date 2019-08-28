@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mahmoud.mohammed.movieapp.MovieApplication
 import com.mahmoud.mohammed.movieapp.R
 import com.mahmoud.mohammed.movieapp.base.BaseFragment
-import com.mahmoud.mohammed.movieapp.presentation.ui.detail.MovieDetailsActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 import javax.inject.Inject
 
@@ -24,17 +24,18 @@ val MOVIE_LIST_FRAGMENT_TAG = MovieListFragment::class.java.name
 
 class MovieListFragment : BaseFragment() {
 
-    @Inject
-    lateinit var factory: PopularMoviesVMFactory
-    private lateinit var viewModel: PopularMoviesViewModel
+  //  lateinit var factory: PopularMoviesVMFactory
+   // private lateinit var viewModel: PopularMoviesViewModel
+
+    private val viewModel: PopularMoviesViewModel by viewModel()
+
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
     private lateinit var popularMoviesAdapter: PopularMoviesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       (activity?.application as MovieApplication).createPopularComponenet().inject(this)
-        initViewModel()
+        //initViewModel()
         if (savedInstanceState == null) {
             viewModel.getPopularMovies()
         }
@@ -43,12 +44,12 @@ class MovieListFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_movie_list, container, false)
-        return view
+        return inflater.inflate(R.layout.fragment_movie_list, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         viewModel.viewState.observe(this, Observer {
             if (it != null) handleViewState(it)
         })
@@ -63,12 +64,13 @@ class MovieListFragment : BaseFragment() {
         progressBar.visibility = if (state.showLoading) View.VISIBLE else View.GONE
         state.movies?.let { popularMoviesAdapter.addMovies(it) }
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         progressBar = popular_movies_progress
         popularMoviesAdapter = PopularMoviesAdapter { movie, view ->
 
-            navigateToMovieDetailsScreen(movie)
+         //   navigateToMovieDetailsScreen(movie)
 /*
             val i = Intent(context, MovieDetailsActivity::class.java)
             i.putExtra(MovieDetailsActivity.MOVIE_ID, movie.id)
@@ -82,12 +84,16 @@ class MovieListFragment : BaseFragment() {
 
 
     private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this, factory).get(PopularMoviesViewModel::class.java)
+     //   val repositoryImpl = MoviesRepositoryImpl()
+      //  val usecase = GetPopularMovies(repositoryImpl)
+    //    factory = PopularMoviesVMFactory(usecase)
+    //    viewModel = ViewModelProviders.of(this, factory).get(PopularMoviesViewModel::class.java)
 
     }
+
     override fun onDestroy() {
         super.onDestroy()
-        (activity?.application as MovieApplication).releasePopularComponent()
+        // (activity?.application as MovieApplication).releasePopularComponent()
     }
 
 }

@@ -1,26 +1,28 @@
 package com.mahmoud.mohammed.movieapp.data.repository
 
+import android.util.Log
 import com.mahmoud.mohammed.movieapp.data.api.Api
+import com.mahmoud.mohammed.movieapp.data.api.MovieListResult
 import com.mahmoud.mohammed.movieapp.data.entities.DetailsData
 import com.mahmoud.mohammed.movieapp.data.entities.MovieData
 import com.mahmoud.mohammed.movieapp.domain.Mapper
 import com.mahmoud.mohammed.movieapp.domain.MoviesDataStore
 import com.mahmoud.mohammed.movieapp.domain.entities.MovieEntity
 import com.mahmoud.mohammed.movieapp.domain.entities.Optional
+import com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments.PopularMoviesViewState
 import io.reactivex.Observable
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import java.io.IOException
 
-class RemoteMoviesDataStore (private val api: Api,
-                             private val movieDataMapper: Mapper<MovieData, MovieEntity>,
-                             private val detailedDataMapper: Mapper<DetailsData, MovieEntity>):
+class RemoteMoviesDataStore(private val api: Api) :
         MoviesDataStore {
-    override fun getMovieById(movieId: Int): Observable<Optional<MovieEntity>> {
-        return api.getMovieDetails(movieId).flatMap { detailedData ->
-            Observable.just(Optional.of(detailedDataMapper.mapFrom(detailedData)))
-        }    }
+    override suspend fun getMovies(): List<MovieData> {
 
-    override fun getMovies(): Observable<List<MovieEntity>> {
-        return api.getPopularMovies().map { results->
-            results.movies.map { movieDataMapper.mapFrom(it) }
-        }
+        val movies=api.getPopularMovies().await().movies
+        return movies
     }
 }
+
+

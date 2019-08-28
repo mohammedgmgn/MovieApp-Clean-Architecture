@@ -7,7 +7,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 //@Singleton
-class MovieDataEntityMapper @Inject
+class MovieDataEntityMapper
 constructor() : Mapper<MovieData, MovieEntity>() {
 
     override fun mapFrom(from: MovieData): MovieEntity {

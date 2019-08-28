@@ -23,8 +23,6 @@ import kotlinx.android.synthetic.main.movie_details_fragment.*
 import javax.inject.Inject
 
 class MovieDetailsActivity : AppCompatActivity() {
-    @Inject
-    lateinit var factory: MovieDetailsVMFactory
 
     private lateinit var detailsViewModel: MovieDetailsViewModel
     private lateinit var backdropImage: ImageView
@@ -54,20 +52,18 @@ class MovieDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
-        (application as MovieApplication).createDetailsComponent().inject(this)
         val movieId = intent.extras.getInt(MOVIE_ID, 0)
         val posterUrl = intent.extras.getString(IMAGE_ID, "")
         backdrop.load(posterUrl)
-        factory.movieId = movieId
-        fav_btn.setOnClickListener { detailsViewModel.favoriteButtonClicked() }
+        //fav_btn.setOnClickListener { detailsViewModel.favoriteButtonClicked() }
 
-        detailsViewModel = ViewModelProviders.of(this, factory).get(MovieDetailsViewModel::class.java)
+      //  detailsViewModel = ViewModelProviders.of(this, factory).get(MovieDetailsViewModel::class.java)
 
         if (savedInstanceState == null) {
             observeViewState()
-            detailsViewModel.getMovieDetails()
+         //   detailsViewModel.getMovieDetails()
         } else {
-            detailsViewModel.getMovieDetails()
+         //   detailsViewModel.getMovieDetails()
         }
 
     }

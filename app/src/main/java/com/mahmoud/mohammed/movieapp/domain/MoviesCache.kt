@@ -10,7 +10,7 @@ interface MoviesCache {
     fun save(movieEntity: MovieEntity)
     fun remove(movieEntity: MovieEntity)
     fun saveAll(movieEntities: List<MovieEntity>)
-    fun getAll(): Observable<List<MovieEntity>>
+    fun getAll(): List<MovieEntity>
     fun get(movieId: Int): Observable<Optional<MovieEntity>>
     fun isEmpty(): Boolean
 }

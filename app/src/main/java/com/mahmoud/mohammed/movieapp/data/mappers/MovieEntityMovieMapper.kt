@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 
 //@Singleton
-class MovieEntityMovieMapper @Inject
+class MovieEntityMovieMapper
 constructor() : Mapper<MovieEntity, Movie>() {
 
     companion object {
