@@ -25,25 +25,18 @@ constructor(
     }
 
     fun getPopularMovies() {
-        viewModelScope.launch (){
-            val movies = getPopularMovies.getMovies()
-            val newState = viewState.value?.copy(showLoading = false, movies = movies)
-            viewState.value = newState
+        viewModelScope.launch {
+            try {
+                val movies = getPopularMovies.getMovies()
+                val newState = viewState.value?.copy(showLoading = false, movies = movies)
+                viewState.value = newState
+
+            } catch (e: Exception) {
+                errorState.value = e
+
+            }
         }
 
-        /*addDisposable(getPopularMovies.observable()
-                .flatMap { movieEntityMovieMapper.observable(it) }
-                .subscribe({ movies ->
-                    viewState.value?.let {
-                        val newState = this.viewState.value?.copy(showLoading = false, movies = movies)
-                        this.viewState.value = newState
-                        this.errorState.value = null
-                    }
-
-                }, {
-                    viewState.value = viewState.value?.copy(showLoading = false)
-                    errorState.value = it
-                }))*/
     }
 
 

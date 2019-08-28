@@ -8,3 +8,6 @@ data class PopularMoviesViewState(
         var showLoading: Boolean = true,
         var movies: List<MovieData>? = null
 )
+data class ErrorViewState(
+        var showLoading: String = ""
+)
