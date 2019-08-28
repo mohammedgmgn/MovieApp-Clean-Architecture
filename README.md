@@ -58,7 +58,7 @@ Model - Manages local data stored in the database.
 
 ### Used libraries: ###
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)
-- [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+- [Koin](https://github.com/InsertKoinIO/koin)
 - [Retrofit2](https://github.com/square/retrofit)
 - [Android architecture components](https://developer.android.com/topic/libraries/architecture/index.html)
 - [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room.html)
