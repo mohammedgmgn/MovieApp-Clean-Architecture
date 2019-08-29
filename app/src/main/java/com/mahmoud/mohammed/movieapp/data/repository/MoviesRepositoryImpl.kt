@@ -6,8 +6,7 @@ import com.mahmoud.mohammed.movieapp.domain.MoviesCache
 import com.mahmoud.mohammed.movieapp.domain.MoviesDataStore
 import com.mahmoud.mohammed.movieapp.domain.MoviesRepository
 
-class MoviesRepositoryImpl(private val api: Api
-                           , private val cache: MoviesCache
+class MoviesRepositoryImpl(private val api: Api, private val cache: MoviesCache
 ) : MoviesRepository {
 
     private val memoryDataStore: MoviesDataStore
