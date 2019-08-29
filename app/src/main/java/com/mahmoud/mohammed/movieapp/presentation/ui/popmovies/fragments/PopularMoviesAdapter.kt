@@ -49,7 +49,10 @@ class PopularMoviesAdapter(private val context: Context?, private val onMovieSel
             movie.posterPath?.let {
                 image.load(context.getString(R.string.rest_themoviedb_image_url)+it)
             }
-            setOnClickListener { listener(movie, itemView) }
+            setOnClickListener {
+                listener(movie, itemView)
+
+            }
         }
 
     }

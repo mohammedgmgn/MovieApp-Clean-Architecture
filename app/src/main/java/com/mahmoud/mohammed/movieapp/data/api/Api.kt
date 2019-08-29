@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface Api {
 
     @GET("movie/{id}?append_to_response=videos,reviews")
-    fun getMovieDetails(@Path("id") movieId: Int): Observable<DetailsData>
+    fun getMovieDetails(@Path("id") movieId: Int): Deferred<DetailsData>
 
     @GET("movie/popular") ///movie/now_playing
     fun getPopularMovies(): Deferred<MovieListResult>
