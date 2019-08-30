@@ -4,312 +4,278 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/movie_details_fragment">
 
-<!--
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_margin="10dp"
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp">
-
-            <Button
-                android:id="@+id/review"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_toEndOf="@+id/duration"
-                android:layout_toRightOf="@+id/duration"
-                android:background="@color/cardview_dark_background"
-                android:text="Reviews"
-                android:textAllCaps="false"
-                android:textColor="#ffffff"
-                android:textSize="15sp" />
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <ImageView
                 android:id="@+id/posterimage"
                 android:layout_width="0dp"
                 android:layout_height="192dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
+                android:layout_weight="4"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                app:layout_widthPercent="35%" />
-
-            <TextView
-                android:id="@+id/tagline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/title1"
-                android:layout_toRightOf="@id/posterimage"
-                android:paddingLeft="@dimen/paddingmed"
-                android:paddingRight="@dimen/paddingmed"
-                android:paddingBottom="@dimen/paddingsmall"
-                android:textStyle="italic" />
-
-            <TextView
-                android:id="@+id/date_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tagline"
-                android:layout_toRightOf="@id/posterimage"
-                android:paddingLeft="@dimen/paddingmed"
-                android:paddingRight="@dimen/paddingmed"
-                android:paddingBottom="@dimen/paddingmed" />
-
-
-            <TextView
-                android:id="@+id/duration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/date_status"
-                android:layout_toRightOf="@id/posterimage"
-                android:paddingLeft="@dimen/paddingmed"
-                android:paddingRight="@dimen/paddingmed"
-                android:paddingBottom="@dimen/paddingsmall" />
-
-            <TextView
-                android:id="@+id/title1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/posterimage"
-                android:paddingLeft="@dimen/paddingmed"
-                android:paddingTop="@dimen/paddingsmall"
-                android:paddingRight="@dimen/paddingmed"
-                android:paddingBottom="@dimen/paddingsmall"
-                android:textSize="@dimen/textsize" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="112dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:gravity="center">
+                android:src="@drawable/singapore" />
 
             <LinearLayout
-                android:id="@+id/one"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:gravity="center_horizontal"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="6"
                 android:orientation="vertical"
-                android:paddingTop="16dp"
-                android:paddingRight="4dp"
-                app:layout_widthPercent="25%">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center">
-
-                    <ImageView
-                        android:id="@+id/ratings_background"
-                        android:layout_width="@dimen/largesize"
-                        android:layout_height="@dimen/largesize"
-                        android:layout_gravity="center"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                       />
-
-                    <TextView
-                        android:id="@+id/rate"
-                        android:layout_width="@dimen/largesize"
-                        android:layout_height="@dimen/largesize"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="11sp" />
-
-                </FrameLayout>
+                android:weightSum="20">
 
 
                 <TextView
-                    android:id="@+id/vote_count"
-                    android:layout_width="@dimen/largesize"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:textSize="11sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/two"
-                android:layout_width="88dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@id/one"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:paddingTop="@dimen/paddingmed"
-                android:paddingRight="4dp">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center">
-
-                    <ImageView
-                        android:id="@+id/genre_background"
-                        android:layout_width="@dimen/largesize"
-                        android:layout_height="@dimen/largesize"
-                        android:layout_gravity="center"
-
-                        />
-                </FrameLayout>
+                    android:id="@+id/original_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:text="The Lion King"
+                    android:textStyle="italic" />
 
                 <TextView
-                    android:id="@+id/genre"
-                    android:layout_width="@dimen/largesize"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="Action"
-                    android:textSize="11sp" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/three"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@id/two"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:paddingTop="@dimen/paddingmed"
-                android:paddingRight="4dp"
-                app:layout_widthPercent="25%">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center">
-
-                    <ImageView
-                        android:id="@+id/pop_background"
-                        android:layout_width="@dimen/largesize"
-                        android:layout_height="@dimen/largesize"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_like" />
-
-                    <TextView
-                        android:id="@+id/popularity"
-                        android:layout_width="@dimen/largesize"
-                        android:layout_height="@dimen/largesize"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="11sp" />
-
-                </FrameLayout>
+                    android:id="@+id/date_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:text="The Lion King" />
 
 
                 <TextView
-                    android:layout_width="@dimen/largesize"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:text="The Lion King"
+                    android:textSize="@dimen/textsize" />
+
+<!--
+                <Button
+                    android:id="@+id/review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:background="@drawable/button_border"
                     android:gravity="center"
-                    android:text="popularity"
-                    android:textSize="11sp" />
+
+                    android:text="Reviews"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+-->
+
+
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/four"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@id/three"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:paddingTop="@dimen/paddingmed"
-                app:layout_widthPercent="25%">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center">
-
-                    <ImageView
-                        android:id="@+id/lang_background"
-                        android:layout_width="@dimen/largesize"
-                        android:layout_height="@dimen/largesize"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_launcher_foreground" />
-
-                    <TextView
-                        android:id="@+id/language"
-                        android:layout_width="@dimen/largesize"
-                        android:layout_height="@dimen/largesize"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="11sp" />
-
-                </FrameLayout>
-
-
-                <TextView
-                    android:layout_width="@dimen/largesize"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:text="language"
-                    android:textSize="11sp" />
-            </LinearLayout>
-
-        </RelativeLayout>
-
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="@dimen/paddingmed" />
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#20000000"
-            android:padding="@dimen/paddingsmall" />
-
+        </LinearLayout>
         <View
             android:id="@+id/line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#20000000"
+            android:layout_marginTop="20dp"
             android:padding="8dp" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="40"
+    >
 
-        <View
+    <LinearLayout
+        android:id="@+id/one"
+        android:layout_width="0dp"
+        android:layout_weight="10"
+
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingRight="4dp"
+        android:paddingTop="16dp"
+       >
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/paddingmed"
-            android:background="#20000000"
-            android:padding="@dimen/paddingsmall" />
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/ratings_background"
+                android:layout_width="@dimen/largesize"
+                android:layout_height="@dimen/largesize"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_ratings" />
+
+            <TextView
+                android:id="@+id/rate"
+                android:layout_width="@dimen/largesize"
+                android:layout_height="@dimen/largesize"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="11sp" />
+
+        </FrameLayout>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewtrailer"
+        <TextView
+            android:id="@+id/vote_count"
+            android:layout_width="@dimen/largesize"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/two"
+        android:layout_width="0dp"
+        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/one"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingRight="4dp"
+        android:paddingTop="@dimen/paddingmed">
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
 
+            <ImageView
+                android:id="@+id/genre_background"
+                android:layout_width="@dimen/largesize"
+                android:layout_height="@dimen/largesize"
+
+                android:layout_gravity="center"
+                android:src="@drawable/ic_genre" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/genre"
+            android:layout_width="@dimen/largesize"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="Action"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/three"
+        android:layout_width="0dp"
+        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/two"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingRight="4dp"
+        android:paddingTop="@dimen/paddingmed"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/pop_background"
+                android:layout_width="@dimen/largesize"
+                android:layout_height="@dimen/largesize"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_normal_background" />
+
+            <TextView
+                android:id="@+id/popularity"
+                android:layout_width="@dimen/largesize"
+                android:layout_height="@dimen/largesize"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="11sp" />
+
+        </FrameLayout>
+
+
+        <TextView
+            android:layout_width="@dimen/largesize"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="popularity"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/four"
+        android:layout_width="0dp"
+        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/paddingmed"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/lang_background"
+                android:layout_width="@dimen/largesize"
+                android:layout_height="@dimen/largesize"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_normal_background" />
+
+            <TextView
+                android:id="@+id/language"
+                android:layout_width="@dimen/largesize"
+                android:layout_height="@dimen/largesize"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="11sp" />
+
+        </FrameLayout>
+
+
+        <TextView
+            android:layout_width="@dimen/largesize"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="language"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+
+</LinearLayout>
 
     </LinearLayout>
--->
-
 
 </androidx.core.widget.NestedScrollView>

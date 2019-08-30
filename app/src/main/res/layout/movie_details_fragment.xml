@@ -54,6 +54,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_like_outline"
         app:layout_anchor="@id/app_bar"
+
         app:layout_anchorGravity="bottom|end" />
 
     <include layout="@layout/content_scrolling" />

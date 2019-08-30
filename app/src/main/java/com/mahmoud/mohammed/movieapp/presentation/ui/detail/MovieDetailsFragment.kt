@@ -1,6 +1,8 @@
 package com.mahmoud.mohammed.movieapp.presentation.ui.detail
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,10 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import coil.api.load
 
-import com.mahmoud.mohammed.movieapp.R
 import com.mahmoud.mohammed.movieapp.data.entities.MovieData
+import kotlinx.android.synthetic.main.content_scrolling.*
 import kotlinx.android.synthetic.main.movie_details_fragment.*
-import kotlinx.android.synthetic.main.movie_details_fragment.view.*
+import com.mahmoud.mohammed.movieapp.R
+
 
 fun MovieDetailFragment() = MovieDetailsFragment()
 val MOVIE_Details_FRAGMENT_TAG = MovieDetailsFragment::class.java.name
@@ -42,6 +45,14 @@ class MovieDetailsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         toolbar.title = movieData.title
         movie_cover.load((context?.getString(R.string.rest_themoviedb_image_url) + movieData.backdropPath))
+        posterimage.load((context?.getString(com.mahmoud.mohammed.movieapp.R.string.rest_themoviedb_image_url) + movieData.posterPath))
+        original_title.text=movieData.originalTitle
+        date_status.text=movieData.releaseDate
+        overview.text=movieData.overview
+        pop_background.setColorFilter(Color.parseColor("#BE2F2F"), PorterDuff.Mode.MULTIPLY)
+        ratings_background.setColorFilter(Color.parseColor("#BE2F2F"), PorterDuff.Mode.MULTIPLY)
+        genre_background.setColorFilter(Color.parseColor("#BE2F2F"), PorterDuff.Mode.MULTIPLY)
+        lang_background.setColorFilter(Color.parseColor("#BE2F2F"), PorterDuff.Mode.MULTIPLY)
 
 
     }
