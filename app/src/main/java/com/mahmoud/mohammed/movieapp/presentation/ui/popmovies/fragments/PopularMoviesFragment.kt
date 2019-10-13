@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mahmoud.mohammed.movieapp.R
+import com.mahmoud.mohammed.movieapp.data.api.MovieListResult
 import com.mahmoud.mohammed.movieapp.extensions.launchActivity
 import com.mahmoud.mohammed.movieapp.presentation.common.SharedViewModel
 import com.mahmoud.mohammed.movieapp.presentation.ui.detail.MOVIE_KEY
@@ -29,16 +30,14 @@ class MovieListFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
     private lateinit var popularMoviesAdapter: PopularMoviesAdapter
-    private lateinit var sharedModel: SharedViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (savedInstanceState == null) {
-            viewModel.getPopularMovies()
-        }
-        sharedModel = activity?.run {
-            ViewModelProviders.of(this).get(SharedViewModel::class.java)
-        } ?: throw Exception("Invalid Activity")
+        viewModel.state.observe(this, Observer<UiModel> { uiModel ->
+            if (uiModel != null) render(uiModel)
+        })
+        viewModel.getPopularMovies()
+
 
 
     }
@@ -51,22 +50,33 @@ class MovieListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel.viewState.observe(this, Observer {
-            if (it != null) handleViewState(it)
-        })
-        viewModel.errorState.observe(this, Observer { throwable ->
-            throwable?.let {
-                Toast.makeText(activity, throwable.message, Toast.LENGTH_LONG).show()
-            }
-        })
+
+        
+
+    }
+    private fun render(uiModel: UiModel) {
+        when (uiModel) {
+            is UiModel.Success -> showMovies(uiModel.data)
+            is UiModel.Error -> showError(uiModel.error)
+        }
+    }
+
+    private fun showError(error: String) {
+        Toast.makeText(context, error, Toast.LENGTH_LONG).show()
 
     }
 
+    private fun showMovies(moviesData: MovieListResult) {
+        moviesData.movies.let { popularMoviesAdapter.addMovies(it) }
+    }
 
-    private fun handleViewState(state: PopularMoviesViewState) {
+
+/*
+    private fun handleViewState(state: UiModel) {
         progressBar.visibility = if (state.showLoading) View.VISIBLE else View.GONE
         state.movies?.let { popularMoviesAdapter.addMovies(it) }
     }
+*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

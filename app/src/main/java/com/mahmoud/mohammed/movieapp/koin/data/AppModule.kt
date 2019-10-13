@@ -1,27 +1,32 @@
-package io.petros.movies.data.di.koin
+package com.mahmoud.mohammed.movieapp.koin.data
 
 import android.content.Context
 import com.google.gson.Gson
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.mahmoud.mohammed.movieapp.BuildConfig
 import com.mahmoud.mohammed.movieapp.R
-import com.mahmoud.mohammed.movieapp.data.api.Api
-import com.mahmoud.mohammed.movieapp.data.repository.RemoteMoviesDataStore
-import com.mahmoud.mohammed.movieapp.domain.MoviesDataStore
+import com.mahmoud.mohammed.movieapp.data.api.MovieService import com.mahmoud.mohammed.movieapp.domain.MoviesDataStore
+import com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments.PopularMoviesViewModel
+import com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments.Repository
+import com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments.RepositoryImpl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-val networkModule = module {
+val appModule = module {
     single { Gson() }
     single { httpLoggingInterceptor() }
     single { okHttpClient(get(), get()) }
     single { retrofit(get(), get(), get()) }
     single { restApi(get()) }
-    single<MoviesDataStore> { RemoteMoviesDataStore(get()) }
+    single<Repository> { RepositoryImpl(get()) }
+    viewModel { PopularMoviesViewModel(get()) }
+
+
 }
 
 private fun httpLoggingInterceptor(): HttpLoggingInterceptor {
@@ -48,9 +53,10 @@ private fun retrofit(
     return Retrofit.Builder()
         .baseUrl(context.getString(R.string.rest_themoviedb_url))
         .addConverterFactory(GsonConverterFactory.create(gson))
-        .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .client(httpClient)
         .build()
 }
 
-private fun restApi(retrofit: Retrofit): Api = retrofit.create(Api::class.java)
+
+private fun restApi(retrofit: Retrofit): MovieService = retrofit.create(MovieService::class.java)

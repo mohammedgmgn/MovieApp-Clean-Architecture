@@ -1,5 +1,7 @@
 package com.mahmoud.mohammed.movieapp
 
+/*
+
 import com.mahmoud.mohammed.movieapp.data.api.Api
 import com.mahmoud.mohammed.movieapp.data.api.MovieListResult
 import com.mahmoud.mohammed.movieapp.data.mappers.DetailsDataMovieEntityMapper
@@ -58,4 +60,4 @@ class MovieRepositoryImplTests {
                 .assertComplete()
                 .assertValue { it.hasValue() && it.value == detailsDataMapper.mapFrom(detailsData) }
     }
-}
+}*/
