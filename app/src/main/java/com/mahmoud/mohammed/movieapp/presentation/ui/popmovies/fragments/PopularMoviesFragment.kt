@@ -9,13 +9,10 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mahmoud.mohammed.movieapp.R
-import com.mahmoud.mohammed.movieapp.data.api.MovieListResult
-import com.mahmoud.mohammed.movieapp.extensions.launchActivity
-import com.mahmoud.mohammed.movieapp.presentation.common.SharedViewModel
+import com.mahmoud.mohammed.movieapp.data.remote.api.MovieListResult
 import com.mahmoud.mohammed.movieapp.presentation.ui.detail.MOVIE_KEY
 import com.mahmoud.mohammed.movieapp.presentation.ui.detail.MovieDetailsActivity
 import kotlinx.android.synthetic.main.fragment_movie_list.*
@@ -33,6 +30,7 @@ class MovieListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         viewModel.state.observe(this, Observer<UiModel> { uiModel ->
             if (uiModel != null) render(uiModel)
         })
@@ -62,21 +60,20 @@ class MovieListFragment : Fragment() {
     }
 
     private fun showError(error: String) {
+        progressBar.visibility = View.GONE
+
         Toast.makeText(context, error, Toast.LENGTH_LONG).show()
 
     }
 
     private fun showMovies(moviesData: MovieListResult) {
+        progressBar.visibility = View.GONE
+
         moviesData.movies.let { popularMoviesAdapter.addMovies(it) }
     }
 
 
-/*
-    private fun handleViewState(state: UiModel) {
-        progressBar.visibility = if (state.showLoading) View.VISIBLE else View.GONE
-        state.movies?.let { popularMoviesAdapter.addMovies(it) }
-    }
-*/
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

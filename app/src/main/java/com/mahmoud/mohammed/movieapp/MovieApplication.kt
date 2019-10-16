@@ -1,7 +1,7 @@
 package com.mahmoud.mohammed.movieapp
 
 import android.app.Application
-import com.mahmoud.mohammed.movieapp.koin.data.appModule
+import com.mahmoud.mohammed.movieapp.koin.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

@@ -28,13 +28,21 @@
  * THE SOFTWARE.
  */
 
-package com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments
+package com.mahmoud.mohammed.movieapp.data
 
 import com.mahmoud.mohammed.movieapp.data.remote.api.MovieListResult
+import com.mahmoud.mohammed.movieapp.data.remote.api.MovieService
+import io.reactivex.Single
 
-sealed class UiModel {
-
-  data class Success(val data: MovieListResult) : UiModel()
-
-  data class Error(val error: String) : UiModel()
+interface Repository {
+    fun getMovies(): Single<MovieListResult>
 }
+
+class RepositoryImpl(private val service: MovieService) : Repository {
+    override fun getMovies(): Single<MovieListResult> {
+        return service.getPopularMovies()
+
+    }
+
+}
+

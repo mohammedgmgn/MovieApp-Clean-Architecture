@@ -4,7 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="popular">Popular Movies</string>\
-    <string name="rest_themoviedb_url">https://api.themoviedb.org/3/</string>
+    <string name="rest_themoviedb_url">https://api.themoviedb.org/3/discover/movie?api_key=</string>
 
     <string name="rest_themoviedb_image_url">http://image.tmdb.org/t/p/w200</string>
     <string name="details">Movie Details</string>

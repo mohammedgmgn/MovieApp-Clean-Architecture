@@ -1,26 +1,18 @@
 package com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.mahmoud.mohammed.movieapp.base.BaseViewModel
+import com.mahmoud.mohammed.movieapp.data.Repository
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class PopularMoviesViewModel
-constructor(private val repository: Repository) : ViewModel() {
+constructor(private val repository: Repository) : BaseViewModel() {
 
 
     internal var state: MutableLiveData<UiModel> = MutableLiveData()
-    private val disposable = CompositeDisposable()
-
-
-    override fun onCleared() {
-        super.onCleared()
-        disposable.clear()
-    }
-
     fun getPopularMovies() {
-        disposable.add(repository.getMovies()
+        addDisposable(repository.getMovies()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

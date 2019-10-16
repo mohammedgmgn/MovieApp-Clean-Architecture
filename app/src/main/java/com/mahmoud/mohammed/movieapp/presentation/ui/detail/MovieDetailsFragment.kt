@@ -9,9 +9,8 @@ import android.view.ViewGroup
 import coil.api.load
 
 import com.mahmoud.mohammed.movieapp.R
-import com.mahmoud.mohammed.movieapp.data.entities.MovieData
+import com.mahmoud.mohammed.movieapp.data.remote.models.MovieData
 import kotlinx.android.synthetic.main.movie_details_fragment.*
-import kotlinx.android.synthetic.main.movie_details_fragment.view.*
 
 fun MovieDetailFragment() = MovieDetailsFragment()
 val MOVIE_Details_FRAGMENT_TAG = MovieDetailsFragment::class.java.name

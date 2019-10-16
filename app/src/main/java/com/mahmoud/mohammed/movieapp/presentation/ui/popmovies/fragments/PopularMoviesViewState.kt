@@ -1,7 +1,6 @@
 package com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments
 
-import com.mahmoud.mohammed.movieapp.data.entities.MovieData
-import com.mahmoud.mohammed.movieapp.presentation.entities.Movie
+import com.mahmoud.mohammed.movieapp.data.remote.models.MovieData
 
 
 data class PopularMoviesViewState(

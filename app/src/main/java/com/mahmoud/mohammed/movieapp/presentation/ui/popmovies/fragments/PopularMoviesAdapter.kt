@@ -1,15 +1,13 @@
 package com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.Coil
 import coil.api.load
 import com.mahmoud.mohammed.movieapp.R
-import com.mahmoud.mohammed.movieapp.data.entities.MovieData
+import com.mahmoud.mohammed.movieapp.data.remote.models.MovieData
 import kotlinx.android.synthetic.main.popular_movies_item_row.view.*
 
 class PopularMoviesAdapter(private val context: Context?, private val onMovieSelected:
@@ -44,7 +42,7 @@ class PopularMoviesAdapter(private val context: Context?, private val onMovieSel
     }
 
     class MovieCellViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(movie: MovieData,context: Context, listener: (MovieData, View) -> Unit) = with(itemView) {
+        fun bind(movie: MovieData, context: Context, listener: (MovieData, View) -> Unit) = with(itemView) {
             title.text = movie.originalTitle
             movie.posterPath?.let {
                 image.load(context.getString(R.string.rest_themoviedb_image_url)+it)

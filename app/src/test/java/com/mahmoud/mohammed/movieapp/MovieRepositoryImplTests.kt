@@ -1,63 +1,29 @@
 package com.mahmoud.mohammed.movieapp
 
-/*
-
-import com.mahmoud.mohammed.movieapp.data.api.Api
-import com.mahmoud.mohammed.movieapp.data.api.MovieListResult
-import com.mahmoud.mohammed.movieapp.data.mappers.DetailsDataMovieEntityMapper
-import com.mahmoud.mohammed.movieapp.data.mappers.MovieDataEntityMapper
-import com.mahmoud.mohammed.movieapp.data.repository.MoviesRepositoryImpl
-import com.mahmoud.mohammed.movieapp.domain.MoviesRepository
-import com.mahmoud.mohammed.movieapp.domain.common.DomainTestUtils.Companion.generateMovieEntityList
-import io.reactivex.Observable
-import org.junit.Before
+import com.google.gson.Gson
+import com.mahmoud.mohammed.movieapp.data.RepositoryImpl
+import com.mahmoud.mohammed.movieapp.data.remote.api.MovieListResult
+import com.mahmoud.mohammed.movieapp.data.remote.api.MovieService
+import io.reactivex.Single
 import org.junit.Test
-import org.mockito.Mockito.*
+
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.whenever
 
 class MovieRepositoryImplTests {
 
-    private val movieDataMapper = MovieDataEntityMapper()
-    private val detailsDataMapper = DetailsDataMovieEntityMapper()
-    private lateinit var api: Api
-    private lateinit var movieCache: TestMoviesCache
-    private lateinit var movieRepository: MoviesRepository
-
-    @Before
-    fun before() {
-        api = mock(Api::class.java)
-        movieCache = TestMoviesCache()
-        movieRepository = MoviesRepositoryImpl(api, movieCache, movieDataMapper, detailsDataMapper)
-    }
+    private val movieService: MovieService = mock()
+    private val repository = RepositoryImpl(movieService)
 
     @Test
-    fun testWhenCacheIsNotEmptyGetMoviesReturnsCachedMovies() {
-
-        movieCache.saveAll(generateMovieEntityList())
-        movieRepository.getMovies().test()
-                .assertComplete()
-                .assertValue { movies -> movies.size == 5 }
-
-        verifyZeroInteractions(api)
-    }
-
-    @Test
-    fun testWhenCacheIsEmptyGetMoviesReturnsMoviesFromApi() {
-        val movieListResult = MovieListResult()
-        movieListResult.movies = TestsUtils.generateMovieDataList()
-        `when`(api.getPopularMovies()).thenReturn(Observable.just(movieListResult))
-        movieRepository.getMovies().test()
-                .assertComplete()
-                .assertValue { movies -> movies.size == 5 }
+    fun getTestMovieResponse() {
+        val gson = Gson()
+        val testModel = gson.fromJson(MovieTestUtils.getJson(jsonResponseFileName), MovieListResult::class.java)
+        whenever(movieService.getPopularMovies())
+                .thenReturn(Single.just(testModel))
+        val testObserver = repository.getMovies().test()
+        testObserver.assertValue(testModel)
     }
 
 
-    @Test
-    fun testGetMovieByIdReturnedApiMovie() {
-        val detailsData = TestsUtils.generateDetailsData(100)
-
-        `when`(api.getMovieDetails(100)).thenReturn(Observable.just(detailsData))
-        movieRepository.getMovie(100).test()
-                .assertComplete()
-                .assertValue { it.hasValue() && it.value == detailsDataMapper.mapFrom(detailsData) }
-    }
-}*/
+}
