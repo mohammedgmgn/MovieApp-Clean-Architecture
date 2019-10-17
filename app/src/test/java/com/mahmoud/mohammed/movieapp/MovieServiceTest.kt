@@ -39,8 +39,7 @@ class MovieServiceTestUsingMockWebServer {
                         .setResponseCode(200))
         val testObserver = movieService.getPopularMovies().test()
         testObserver.assertNoErrors()
-        TestCase.assertEquals(Endpoint.DISCOVER,
-                mockWebServer.takeRequest().path)
+        TestCase.assertEquals(Endpoint.DISCOVER,mockWebServer.takeRequest().path)
     }
 
 }
