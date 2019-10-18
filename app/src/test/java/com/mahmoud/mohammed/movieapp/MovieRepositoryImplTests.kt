@@ -18,10 +18,14 @@ class MovieRepositoryImplTests {
     @Test
     fun getTestMovieResponse() {
         val gson = Gson()
+        //1
         val testModel = gson.fromJson(MovieTestUtils.getJson(jsonResponseFileName), MovieListResult::class.java)
+        //2
         whenever(movieService.getPopularMovies())
                 .thenReturn(Single.just(testModel))
+        //3
         val testObserver = repository.getMovies().test()
+        //4
         testObserver.assertValue(testModel)
     }
 
