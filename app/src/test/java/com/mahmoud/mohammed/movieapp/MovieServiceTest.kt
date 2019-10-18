@@ -47,7 +47,6 @@ class MovieServiceTestUsingMockWebServer {
         )
         //1
         val testObserver = movieService.getPopularMovies().test()
-
         //2
         TestCase.assertEquals(testObserver.values()[0].movies, MovieTestUtils.getMovieTestObject().movies)
     }
