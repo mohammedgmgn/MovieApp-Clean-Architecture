@@ -8,11 +8,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface MovieService {
-
-    @GET("movie/{id}?append_to_response=videos,reviews")
-    fun getMovieDetails(@Path("id") movieId: Int): Deferred<DetailsData>
-
-
+    
     @GET(Endpoint.DISCOVER)
     fun getPopularMovies(): Single<MovieListResult>
 
