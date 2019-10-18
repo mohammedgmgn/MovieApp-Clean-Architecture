@@ -12,16 +12,21 @@ import com.nhaarman.mockitokotlin2.whenever
 
 class MovieRepositoryImplTests {
 
+
     private val movieService: MovieService = mock()
     private val repository = RepositoryImpl(movieService)
 
     @Test
     fun getTestMovieResponse() {
         val gson = Gson()
+        //1
         val testModel = gson.fromJson(MovieTestUtils.getJson(jsonResponseFileName), MovieListResult::class.java)
+        //2
         whenever(movieService.getPopularMovies())
                 .thenReturn(Single.just(testModel))
+        //3
         val testObserver = repository.getMovies().test()
+        //4
         testObserver.assertValue(testModel)
     }
 
