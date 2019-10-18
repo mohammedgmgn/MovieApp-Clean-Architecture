@@ -40,7 +40,7 @@ interface Repository {
 
 class RepositoryImpl(private val service: MovieService) : Repository {
     override fun getMovies(): Single<MovieListResult> {
-        return service.getPopularMovies()
+        return Single.error(NotImplementedError())
 
     }
 
