@@ -4,7 +4,6 @@ import android.content.Context
 import com.google.gson.Gson
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.mahmoud.mohammed.movieapp.BuildConfig
-import com.mahmoud.mohammed.movieapp.common.Endpoint
 import com.mahmoud.mohammed.movieapp.data.remote.api.MovieService
 import com.mahmoud.mohammed.movieapp.presentation.ui.popmovies.fragments.PopularMoviesViewModel
 import com.mahmoud.mohammed.movieapp.data.Repository
