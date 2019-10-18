@@ -1,9 +1,7 @@
 package com.mahmoud.mohammed.movieapp
 
-import com.google.gson.Gson
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.mahmoud.mohammed.movieapp.common.Endpoint
-import com.mahmoud.mohammed.movieapp.data.remote.api.MovieListResult
 import com.mahmoud.mohammed.movieapp.data.remote.api.MovieService
 import junit.framework.TestCase
 import okhttp3.mockwebserver.MockResponse
@@ -50,20 +48,23 @@ class MovieServiceTestUsingMockWebServer {
         )
         //1
         val testObserver = movieService.getPopularMovies().test()
+
         //2
         TestCase.assertEquals(testObserver.values()[0].movies, MovieTestUtils.getMovieTestObject().movies)
     }
 
     @Test
     fun testMoviesServicePath() {
+        //1
         mockWebServer.enqueue(
                 MockResponse()
                         .setBody(MovieTestUtils.getJson(jsonResponseFileName))
                         .setResponseCode(200))
-
+        //2
         val testObserver = movieService.getPopularMovies().test()
+        //3
         testObserver.assertNoErrors()
-        TestCase.assertEquals(Endpoint.DISCOVER,mockWebServer.takeRequest().path)
+        //4
+        TestCase.assertEquals(Endpoint.VALID_EXPECTED_PATH, mockWebServer.takeRequest().path)
     }
-
 }

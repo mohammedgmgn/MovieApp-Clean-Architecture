@@ -10,8 +10,9 @@ object Endpoint {
     const val IMAGES_URL = "https://image.tmdb.org/t/p/w185_and_h278_bestv2"
     const val BASE_URL = "https://api.themoviedb.org"
 
-    const val DISCOVER = "/3/discover/movie?api_key=$API_KEY_VALUE"
+    const val DISCOVER_MOVIES = "/3?api_key=$API_KEY_VALUE"
 
+    const val VALID_EXPECTED_PATH = "/3/discover/movie?api_key=$API_KEY_VALUE"
 
 
 }

@@ -9,7 +9,7 @@ import retrofit2.http.Path
 
 interface MovieService {
 
-    @GET(Endpoint.DISCOVER)
+    @GET(Endpoint.VALID_EXPECTED_PATH)
     fun getPopularMovies(): Single<MovieListResult>
 
 
