@@ -97,3 +97,27 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ~~~~
+
+
+# Pull Request Guidelines
+
+## Main Branch
+
+The `master` branch represents the latest version. This is what you want to fork and base your feature branch on
+
+
+## Branch Naming
+
+Branch names should use the following pattern.
+
+`fix/` = fix an existing issue  
+`update/` = update an existing feature  
+`add/` = add a new feature  
+`remove/` = remove an existing feature  
+
+## Commits
+
+As you commit code to these branches, don’t tag the issue number in the individual commit messages as it pollutes the pull request and makes it messier. Just attach the issue number to the final pull request. Before you submit your final pull request, make sure all your branches are up to date with `master`.
+
+
+
