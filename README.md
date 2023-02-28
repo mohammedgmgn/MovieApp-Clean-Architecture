@@ -81,22 +81,6 @@ Model - Manages local data stored in the database.
 - [source code for the official Google I/O 2018 for Android app](https://android-developers.googleblog.com/2018/08/google-releases-source-for-google-io.html)
 - [Architecture Components Code Lab](https://codelabs.developers.google.com/codelabs/build-app-with-arch-components/index.html?index=..%2F..%2Findex#0)
 
-### License: ###
-~~~~
-Copyright 2018 Mohammed Mahmoud 
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-~~~~
 
 
 # Pull Request Guidelines
@@ -118,6 +102,27 @@ Branch names should use the following pattern.
 ## Commits
 
 As you commit code to these branches, don’t tag the issue number in the individual commit messages as it pollutes the pull request and makes it messier. Just attach the issue number to the final pull request. Before you submit your final pull request, make sure all your branches are up to date with `master`.
+
+
+
+### License: ###
+~~~~
+Copyright 2018 Mohammed Mahmoud 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+~~~~
+
+
 
 
 
